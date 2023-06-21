@@ -26,7 +26,7 @@ export default function Tracks({ data }: { data: any }) {
   return (
     <>
       <Head>
-        <title>Tracks | Zacchary Puckeridge</title>
+        <title>Tracks | توحید شعبانلو</title>
         <meta name="description" content="Find out what I'm jamming out to!" />
       </Head>
       <div className="my-20 max-w-4xl">
@@ -42,7 +42,8 @@ export default function Tracks({ data }: { data: any }) {
           <a
             href="https://open.spotify.com/user/oid25p8bf0jm4zfezkf765o03"
             className="hover:text-[#888888] text-white transition-all duration-200 md:mt-10"
-            title="Spotify Profile">
+            title="Spotify Profile"
+          >
             <NowPlaying />
           </a>
         </div>

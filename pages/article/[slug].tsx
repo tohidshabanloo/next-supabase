@@ -56,7 +56,7 @@ export default function Article({
   return (
     <>
       <Head>
-        <title>{data.title} | Zacchary Puckeridge</title>
+        <title>{data.title} | توحید شعبانلو</title>
         <meta name="description" content={data.description} />
       </Head>
       <div className="mb-20 mt-20">

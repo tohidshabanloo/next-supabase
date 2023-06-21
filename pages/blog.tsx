@@ -61,7 +61,7 @@ export default function Blog({ data }: { data: any }) {
   return (
     <>
       <Head>
-        <title>Blog | Zacchary Puckeridge</title>
+        <title>Blog | توحید شعبانلو</title>
         <meta
           name="description"
           content="Check out some of my recent articles!"
@@ -115,7 +115,8 @@ export default function Blog({ data }: { data: any }) {
             <div key={article.slug}>
               <Link
                 href={`/article/${article.slug}`}
-                className="mb-4 transform hover:scale-[1.05] h-full transition-all text-white bg-white/5 border border-zinc-800/50 rounded-lg flex flex-col overflow-hidden hover:ring-2 ring-gray-300">
+                className="mb-4 transform hover:scale-[1.05] h-full transition-all text-white bg-white/5 border border-zinc-800/50 rounded-lg flex flex-col overflow-hidden hover:ring-2 ring-gray-300"
+              >
                 <div>
                   <div className="relative flex justify-center my-auto rounded-t-lg">
                     <div className="w-full h-full lg:h-48" />
@@ -137,7 +138,8 @@ export default function Blog({ data }: { data: any }) {
                   <div className="px-4">
                     <h1
                       className="mt-4 text-xl font-bold line-clamp-title"
-                      title={article.title}>
+                      title={article.title}
+                    >
                       {article.title}
                     </h1>
                     <div className="mt-2 flex justify-between">
@@ -164,7 +166,8 @@ export default function Blog({ data }: { data: any }) {
                     ? "bg-white/50 border-zinc-800 ring-2 ring-gray-300"
                     : "bg-white/5 border border-zinc-800/50 hover:ring-2 ring-gray-300"
                 } transition-all`}
-                onClick={() => handlePageClick(i + 1)}>
+                onClick={() => handlePageClick(i + 1)}
+              >
                 {i + 1}
               </button>
             )
@@ -178,7 +181,8 @@ export default function Blog({ data }: { data: any }) {
           -{" "}
           <a
             href="https://dougwils.com/"
-            className="hover:text-[#dacf00] text-[#fff200]">
+            className="hover:text-[#dacf00] text-[#fff200]"
+          >
             Doug Wilson
           </a>
         </p>

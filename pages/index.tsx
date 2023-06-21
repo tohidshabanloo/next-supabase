@@ -24,8 +24,8 @@ export async function getServerSideProps() {
   });
 
   if (error) {
-     throw new Error(error.message);
-   }
+    throw new Error(error.message);
+  }
 
   return {
     props: {
@@ -36,11 +36,11 @@ export async function getServerSideProps() {
 
 export default function Home({ data }: { data: any }) {
   const [isLoading, setLoading] = useState(true);
-  console.log(data)
+  console.log(data);
   return (
     <>
       <Head>
-        <title>Home | Zacchary Puckeridge</title>
+        <title>Home | توحید شعبانلو</title>
         <meta
           name="description"
           content="Woah! You made it to my personal website, welcome."
@@ -50,7 +50,7 @@ export default function Home({ data }: { data: any }) {
         <div className="flex flex-col-reverse sm:flex-row items-start">
           <div className="flex flex-col pr-12">
             <h1 className="font-bold text-3xl md:text-5xl tracking-tight mb-1 text-white">
-              Zacchary Puckeridge
+              توحید شعبانلو
             </h1>
             <h2 className="mt-2 text-white mb-4">
               IT Administrator and Web Developer at{" "}
@@ -70,10 +70,10 @@ export default function Home({ data }: { data: any }) {
           </div>
           <div className="mb-8 sm:mb-0 mr-auto">
             <Image
-              alt="Zacchary Puckeridge"
+              alt="توحید شعبانلو"
               height={140}
               width={140}
-              src="/images/profile-pic.jpg"
+              src="https://res.cloudinary.com/tohidsh/image/upload/v1677237481/backpacker/Profile%20Images/logo.png"
               className={cn(
                 "rounded-full duration-700 ease-in-out hidden w-36 md:flex select-none",
                 isLoading

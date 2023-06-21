@@ -4,7 +4,7 @@ export default function About() {
   return (
     <>
       <Head>
-        <title>Uses | Zacchary Puckeridge</title>
+        <title>Uses | توحید شعبانلو</title>
         <meta
           name="description"
           content="Check out what I'm using on my day to day!"

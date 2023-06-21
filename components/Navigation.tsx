@@ -22,12 +22,13 @@ export default function Navigation() {
                 <Link
                   href="/"
                   className="flex items-center py-2 text-white hover:text-[#888888]"
-                  title="Home">
+                  title="Home"
+                >
                   <Image
-                    alt="Zacchary Puckeridge"
+                    alt="توحید شعبانلو"
                     height={40}
                     width={40}
-                    src="/images/profile-pic.jpg"
+                    src="https://res.cloudinary.com/tohidsh/image/upload/v1677237481/backpacker/Profile%20Images/logo.png"
                     className={cn(
                       "rounded-full duration-700 ease-in-out select-none",
                       isLoading
@@ -38,7 +39,7 @@ export default function Navigation() {
                     priority={true}
                   />
                   <span className="ml-2 text-lg font-bold transition-all duration-200 shadow-2xl">
-                    Zacchary Puckeridge
+                    توحید شعبانلو
                   </span>
                 </Link>
               </div>
@@ -82,7 +83,8 @@ export default function Navigation() {
                 <button
                   className="mobile-menu-button outline-none"
                   title="Mobile Menu"
-                  onClick={() => setShowMenu(!showMenu)}>
+                  onClick={() => setShowMenu(!showMenu)}
+                >
                   <FiMenu className="h-6 w-6" />
                 </button>
               </div>
@@ -92,12 +94,14 @@ export default function Navigation() {
           <div className={`mobile-menu ${showMenu ? "block" : "hidden"}`}>
             <ul
               className="top-100 absolute left-0 right-0 bg-[#1d1d1d] border border-zinc-800/50 rounded-b-lg max-w-6xl text-2xl shadow-xl"
-              onClick={() => setShowMenu(false)}>
+              onClick={() => setShowMenu(false)}
+            >
               <li className="relative">
                 <Link
                   href="/about"
                   className="block px-2 py-4 text-center font-semibold text-white transition duration-200 hover:bg-white/10 hover:text-gray-300"
-                  title="About">
+                  title="About"
+                >
                   About
                 </Link>
               </li>
@@ -105,7 +109,8 @@ export default function Navigation() {
                 <Link
                   href="/blog"
                   className="block px-2 py-4 text-center font-semibold text-white transition duration-200 hover:bg-white/10 hover:text-gray-300"
-                  title="Blog">
+                  title="Blog"
+                >
                   Blog
                 </Link>
               </li>
@@ -113,7 +118,8 @@ export default function Navigation() {
                 <Link
                   href="/gallery"
                   className="block px-2 py-4 text-center font-semibold text-white transition duration-200 hover:bg-white/10 hover:text-gray-300"
-                  title="Gallery">
+                  title="Gallery"
+                >
                   Gallery
                 </Link>
               </li>
@@ -121,7 +127,8 @@ export default function Navigation() {
                 <Link
                   href="/projects"
                   className="block px-2 py-4 text-center font-semibold text-white transition duration-200 hover:bg-white/10 hover:text-gray-300"
-                  title="Projects">
+                  title="Projects"
+                >
                   Projects
                 </Link>
               </li>
@@ -129,7 +136,8 @@ export default function Navigation() {
                 <Link
                   href="/timeline"
                   className="block px-2 py-4 text-center font-semibold text-white transition duration-200 hover:bg-white/10 hover:text-gray-300"
-                  title="Timeline">
+                  title="Timeline"
+                >
                   Timeline
                 </Link>
               </li>
@@ -137,7 +145,8 @@ export default function Navigation() {
                 <Link
                   href="/uses"
                   className="block px-2 py-4 text-center font-semibold text-white transition duration-200 hover:bg-white/10 hover:text-gray-300"
-                  title="Uses">
+                  title="Uses"
+                >
                   Uses
                 </Link>
               </li>

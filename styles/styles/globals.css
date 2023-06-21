@@ -1,0 +1,16 @@
+/* purgecss start ignore */
+@tailwind base;
+@tailwind components;
+/* purgecss end ignore */
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Vazirmatn;
+}
+
+body {
+  font-family: Vazirmatn;
+}

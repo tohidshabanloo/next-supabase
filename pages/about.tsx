@@ -15,7 +15,7 @@ export default function About() {
   return (
     <>
       <Head>
-        <title>About | Zacchary Puckeridge</title>
+        <title>About | توحید شعبانلو</title>
         <meta name="description" content="Learn more about me!" />
       </Head>
       <div className="grid place-items-center text-white">

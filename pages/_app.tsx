@@ -4,6 +4,7 @@ import type { AppProps } from "next/app";
 import { Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import "../styles/globals.css";
+import "../styles/font.css";
 import { createBrowserSupabaseClient } from "@supabase/auth-helpers-nextjs";
 import { SessionContextProvider, Session } from "@supabase/auth-helpers-react";
 import { useState } from "react";
@@ -22,18 +23,21 @@ function MyApp({
   const [supabase] = useState(() => createBrowserSupabaseClient());
 
   return (
-    <SessionContextProvider
-      supabaseClient={supabase}
-      initialSession={pageProps.initialSession}>
-      <main className={inter.className}>
-        <Layout>
-          <TransitionEffect>
-            <Component {...pageProps} />
-            <Analytics />
-          </TransitionEffect>
-        </Layout>
-      </main>
-    </SessionContextProvider>
+    <div dir="rtl">
+      <SessionContextProvider
+        supabaseClient={supabase}
+        initialSession={pageProps.initialSession}
+      >
+        <main className={inter.className}>
+          <Layout>
+            <TransitionEffect>
+              <Component {...pageProps} />
+              <Analytics />
+            </TransitionEffect>
+          </Layout>
+        </main>
+      </SessionContextProvider>
+    </div>
   );
 }
 
