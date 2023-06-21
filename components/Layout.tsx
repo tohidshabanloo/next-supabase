@@ -12,30 +12,41 @@ export default function Layout({ children }: { children: any }) {
         <main className="mx-auto">{children}</main>
         <footer className="text-center">
           <div className="font-semibold text-md text-[#888888]">
+            <a
+              href="https://github.com/zpuckeridge/blog"
+              className="hover:text-[#ff0000] transition-all duration-200"
+            >
+              ❤
+            </a>
             Made with{" "}
             <a
               href="https://nextjs.org/"
-              className="hover:text-white transition-all duration-200">
+              className="hover:text-white transition-all duration-200"
+            >
               Next.JS
             </a>
             ,{" "}
             <a
               href="https://reactjs.org/"
-              className="hover:text-white transition-all duration-200">
+              className="hover:text-white transition-all duration-200"
+            >
               React
             </a>
             ,{" "}
             <a
+              href="https://supabase.com/"
+              className="hover:text-white transition-all duration-200"
+            >
+              Supabase
+            </a>{" "}
+            ,
+            <a
               href="https://tailwindcss.com/"
-              className="hover:text-white transition-all duration-200">
+              className="hover:text-white transition-all duration-200"
+            >
               Tailwind CSS
             </a>{" "}
             and{" "}
-            <a
-              href="https://github.com/zpuckeridge/blog"
-              className="hover:text-[#ff0000] transition-all duration-200">
-              ❤
-            </a>
           </div>
           <div className="fixed bottom-4 right-4 hover:text-white text-[#888888] transition-all duration-200">
             <Link href="/dashboard" title="Dashboard">

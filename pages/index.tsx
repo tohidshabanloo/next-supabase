@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import NowPlaying from "../components/NowPlaying";
-import { FiArrowRight } from "react-icons/fi";
+import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 import { useState } from "react";
 import supabase from "../lib/supabase";
 import dateFormat from "dateformat";
@@ -53,19 +53,19 @@ export default function Home({ data }: { data: any }) {
               توحید شعبانلو
             </h1>
             <h2 className="mt-2 text-white mb-4">
-              IT Administrator and Web Developer at{" "}
+              برنامه نویس فرانت اند در{" "}
               <span className="font-semibold">
                 <a
-                  href="https://rsp.com.au/"
-                  title="Rising Sun Pictures"
+                  href="https://natasun.ir/"
+                  title="ناتاسان"
                   className="hover:text-[#dacf00] text-[#fff200] transition-all duration-200"
                 >
-                  Rising Sun Pictures
+                  ناتاسان
                 </a>
               </span>
             </h2>
             <p className="text-[#888888] mb-16">
-              Building better artist experiences by day. Web Developer by night.
+              ساخت محتوای ویدیوئی در روز؛ برنامه نویسی در شب.
             </p>
           </div>
           <div className="mb-8 sm:mb-0 mr-auto">
@@ -87,7 +87,7 @@ export default function Home({ data }: { data: any }) {
         </div>
 
         <h3 className="font-bold text-3xl tracking-tight mb-4 text-white">
-          Recent Articles
+          مقاله های اخیر
         </h3>
         <div className="grid gap-2 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 max-w-4xl mx-auto">
           {data.map((article: any) => (
@@ -106,7 +106,7 @@ export default function Home({ data }: { data: any }) {
                     </h1>
                     <div className="mt-2 flex justify-between text-sm">
                       <div>{article.published_at}</div>
-                      <div>{article.views} views</div>
+                      <div>{article.views} بازدید</div>
                     </div>
                   </div>
                 </div>
@@ -121,17 +121,17 @@ export default function Home({ data }: { data: any }) {
               title="Read all posts"
               className="flex mt-4 text-[#888888] rounded-lg hover:text-white transition-all"
             >
-              Read all articles
-              <FiArrowRight className="ml-1 h-4 w-4 my-auto" />
+              مشاهده تمامی پست ها
+              <FiArrowLeft className="ml-1 h-4 w-4 my-auto" />
             </Link>
           </div>
-          <div>
+          {/* <div>
             <h4 className="flex mt-4 text-[#888888] rounded-lg hover:text-white transition-all">
               <Link href="/tracks">
                 <NowPlaying />
               </Link>
             </h4>
-          </div>
+          </div> */}
         </div>
       </div>
     </>

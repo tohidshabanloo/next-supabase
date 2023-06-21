@@ -58,7 +58,7 @@ const Contact = () => {
       <div className="bg-white/5 w-full p-4 rounded-lg border border-zinc-800/50">
         <form onSubmit={handleSubmit}>
           <label className="font-bold text-sm mb-1">
-            Name
+            نام
             <input
               type="text"
               id="name"
@@ -69,7 +69,7 @@ const Contact = () => {
           </label>
           <br />
           <label className="font-bold text-sm mb-1">
-            Email
+            ایمیل
             <input
               type="email"
               id="email"
@@ -81,7 +81,7 @@ const Contact = () => {
           </label>
           <br />
           <label className="font-bold text-sm mb-1">
-            Message
+            پیغام
             <textarea
               id="message"
               value={message}
@@ -93,12 +93,14 @@ const Contact = () => {
           <div className="md:flex justify-between">
             <div
               className="cf-turnstile checkbox"
-              data-sitekey={process.env.NEXT_PUBLIC_TURNSTILE_KEY}></div>
+              data-sitekey={process.env.NEXT_PUBLIC_TURNSTILE_KEY}
+            ></div>
             <button
               disabled={formSubmitted}
               className="py-1 px-6 md:mt-0 mt-4 bg-white/5 border border-zinc-800/50 rounded-lg flex items-center justify-center hover:ring-2 ring-gray-300 transition-all"
-              type="submit">
-              {!success && !error && <span>Send</span>}
+              type="submit"
+            >
+              {!success && !error && <span>ارسال</span>}
               {success && <FiCheck />}
               {error && <FiX />}
             </button>

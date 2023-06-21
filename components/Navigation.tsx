@@ -46,33 +46,33 @@ export default function Navigation() {
               <div className="flex space-x-7">
                 <div className="hidden items-center space-x-4 lg:flex">
                   <Link href="/about" title="About">
-                    <button className="inline-flex text-white font-semibold transition-all duration-200 hover:text-[#888888]">
-                      About
+                    <button className="ml-4 inline-flex text-white font-semibold transition-all duration-200 hover:text-[#888888] ">
+                      درمورد من
                     </button>
                   </Link>
                   <Link href="/blog" title="Blog">
                     <button className="block text-white font-semibold transition-all duration-200 hover:text-[#888888]">
-                      Blog
+                      وبلاگ
                     </button>
                   </Link>
                   <Link href="/gallery" title="Gallery">
                     <button className="block text-white font-semibold transition-all duration-200 hover:text-[#888888]">
-                      Gallery
+                      گالری
                     </button>
                   </Link>
                   <Link href="/projects" title="Projects">
                     <button className="block text-white font-semibold transition-all duration-200 hover:text-[#888888]">
-                      Projects
+                      پروژه ها
                     </button>
                   </Link>
                   <Link href="/timeline" title="Timeline">
                     <button className="block text-white font-semibold transition-all duration-200 hover:text-[#888888]">
-                      Timeline
+                      زندگی نامه
                     </button>
                   </Link>
                   <Link href="/uses" title="Uses">
                     <button className="block text-white font-semibold transition-all duration-200 hover:text-[#888888]">
-                      Uses
+                      ابزار
                     </button>
                   </Link>
                   <LoginButton />

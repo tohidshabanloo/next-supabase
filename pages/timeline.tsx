@@ -25,7 +25,7 @@ export default function Timeline() {
               <span className="flex absolute -left-3 justify-center items-center w-6 h-6 rounded-full text-black bg-[#fff200]">
                 <svg
                   aria-hidden="true"
-                  className="w-3 h-3"
+                  className="w-3 h-3 "
                   fill="currentColor"
                   viewBox="0 0 20 20"
                   xmlns="http://www.w3.org/2000/svg"
