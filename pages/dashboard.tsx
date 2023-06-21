@@ -53,13 +53,27 @@ export default function Dashboard({ data }: { data: any }) {
     }
   };
 
-  if (session && session.user.email === `contact@sdelta.xyz`) {
+
+
+
+
+  async function signInWithEmail() {
+    const { data, error } = await supabase.auth.signInWithPassword({
+      email: 'contact@sdelta.xyz',
+      password: '123456789',
+    })
+  }
+
+
+
     return (
       <>
         <Head>
           <title>Dashboard | Zacchary Puckeridge</title>
           <meta name="description" content="Post and manage articles" />
         </Head>
+
+
         <div className="max-w-4xl">
           <div className="text-white">
             <h1 className="font-bold text-3xl">Dashboard</h1>
@@ -108,13 +122,4 @@ export default function Dashboard({ data }: { data: any }) {
         </div>
       </>
     );
-  } else {
-    return (
-      <div className="justify-center text-center xl:max-w-6xl mx-auto mt-10 mb-20">
-        <h1 className="font-bold text-2xl text-white">
-          Sorry! You are not authorised to view this page!
-        </h1>
-      </div>
-    );
-  }
 }

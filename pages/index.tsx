@@ -23,6 +23,10 @@ export async function getServerSideProps() {
     data.published_at = dateFormat(data.published_at, "mmmm dS");
   });
 
+  if (error) {
+     throw new Error(error.message);
+   }
+
   return {
     props: {
       data,
@@ -32,7 +36,7 @@ export async function getServerSideProps() {
 
 export default function Home({ data }: { data: any }) {
   const [isLoading, setLoading] = useState(true);
-
+  console.log(data)
   return (
     <>
       <Head>
@@ -85,7 +89,7 @@ export default function Home({ data }: { data: any }) {
         <h3 className="font-bold text-3xl tracking-tight mb-4 text-white">
           Recent Articles
         </h3>
-        {/* <div className="grid gap-2 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 max-w-4xl mx-auto">
+        <div className="grid gap-2 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 max-w-4xl mx-auto">
           {data.map((article: any) => (
             <div key={article.slug}>
               <Link
@@ -109,7 +113,7 @@ export default function Home({ data }: { data: any }) {
               </Link>
             </div>
           ))}
-        </div> */}
+        </div>
         <div className="flex justify-between">
           <div>
             <Link
