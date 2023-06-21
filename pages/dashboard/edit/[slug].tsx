@@ -20,6 +20,8 @@ import {
 import supabase from "../../../lib/supabase";
 import { BsTypeStrikethrough } from "react-icons/bs";
 import { RiHeading } from "react-icons/ri";
+import image from "next/image";
+import Image from "next/image";
 
 export async function getServerSideProps(context: any) {
   const { slug } = context.query;
@@ -51,10 +53,11 @@ export default function Edit({ data }: { data: any }) {
     const title = e.target.elements.title.value;
     const content = e.target.elements.content.value;
     const published = e.target.elements.published.value;
+    const image = e.target.elements.image.value;
 
     const { data: article, error } = await supabase
       .from("blog")
-      .update({ title, content, published })
+      .update({ title, content, published, image })
       .eq("slug", data.slug)
       .single();
 
@@ -100,6 +103,23 @@ export default function Edit({ data }: { data: any }) {
                 required
               />
             </label>
+            <label className="font-bold text-sm mb-1">
+              Image<span className="text-red-500">*</span>
+              <input
+                className="flex justify-between w-full p-2 bg-white/5 border border-zinc-800/50 text-sm mb-4 rounded-lg font-normal"
+                type="text"
+                name="image"
+                defaultValue={data.image}
+                required
+              />
+            </label>
+
+            <Image
+              alt={`${data.title}`}
+              width={400}
+              height={400}
+              src={`${data.image}`}
+            />
 
             <label className="font-bold text-sm mb-1">
               Slug<span className="text-red-500">*</span>
