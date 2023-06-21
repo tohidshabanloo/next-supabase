@@ -54,10 +54,11 @@ export default function Edit({ data }: { data: any }) {
     const content = e.target.elements.content.value;
     const published = e.target.elements.published.value;
     const image = e.target.elements.image.value;
+    const tags = e.target.elements.tags.value;
 
     const { data: article, error } = await supabase
       .from("blog")
-      .update({ title, content, published, image })
+      .update({ title, content, published, image, tags })
       .eq("slug", data.slug)
       .single();
 
@@ -120,6 +121,17 @@ export default function Edit({ data }: { data: any }) {
               height={400}
               src={`${data.image}`}
             />
+
+            <label className="font-bold text-sm mb-1">
+              Tags<span className="text-red-500">*</span>
+              <input
+                className="w-full p-2 bg-white/5 border border-zinc-800/50 text-sm mb-4 rounded-lg font-normal placeholder:text-[#888888]"
+                type="text"
+                name="tags"
+                defaultValue={data.tags}
+                required
+              />
+            </label>
 
             <label className="font-bold text-sm mb-1">
               Slug<span className="text-red-500">*</span>
