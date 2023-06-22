@@ -6,8 +6,6 @@ const prettier = require("prettier");
   const pages = await globby([
     "pages/*.js",
     "pages/*.tsx",
-    "pages/article/*.js",
-    "pages/article/*.tsx",
     "news/**/*.mdx",
     "news/**/*.md",
     "posts/**/*.mdx",
@@ -36,7 +34,7 @@ const prettier = require("prettier");
                 }
                 const path = page
                   .replace("pages/", "")
-                  .replace("posts/", "blog/posts/")
+                  .replace("pages/article/", "article/")
                   .replace("news/", "blog/news/")
                   .replace("public/", "/")
                   .replace(".js", "")
@@ -47,7 +45,7 @@ const prettier = require("prettier");
                 const route = path === "/index" ? "" : path;
                 if (
                   page.search("pages/404.") > -1 ||
-                  page.search(`pages/blog/[...slug].`) > -1
+                  page.search(`pages/article/[...slug].`) > -1
                 ) {
                   return;
                 }

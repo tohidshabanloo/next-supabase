@@ -1,42 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://backpacker-supabase.vercel.app/about</loc>
+    <loc>https://backpacker-supabase.vercel.app/article/about</loc>
   </url>
 
   <url>
-    <loc>https://backpacker-supabase.vercel.app/blog</loc>
+    <loc>https://backpacker-supabase.vercel.app/article/blog</loc>
   </url>
 
   <url>
-    <loc>https://backpacker-supabase.vercel.app/dashboard</loc>
+    <loc>https://backpacker-supabase.vercel.app/article/dashboard</loc>
   </url>
 
   <url>
-    <loc>https://backpacker-supabase.vercel.app/index</loc>
+    <loc>https://backpacker-supabase.vercel.app/article/index</loc>
   </url>
 
   <url>
-    <loc>https://backpacker-supabase.vercel.app/projects</loc>
+    <loc>https://backpacker-supabase.vercel.app/article/projects</loc>
   </url>
 
   <url>
-    <loc>https://backpacker-supabase.vercel.app/tags</loc>
+    <loc>https://backpacker-supabase.vercel.app/article/tags</loc>
   </url>
 
   <url>
-    <loc>https://backpacker-supabase.vercel.app/timeline</loc>
+    <loc>https://backpacker-supabase.vercel.app/article/timeline</loc>
   </url>
 
   <url>
-    <loc>https://backpacker-supabase.vercel.app/tracks</loc>
+    <loc>https://backpacker-supabase.vercel.app/article/tracks</loc>
   </url>
 
   <url>
-    <loc>https://backpacker-supabase.vercel.app/uses</loc>
-  </url>
-
-  <url>
-    <loc>https://backpacker-supabase.vercel.app/article/[slug]</loc>
+    <loc>https://backpacker-supabase.vercel.app/article/uses</loc>
   </url>
 </urlset>
