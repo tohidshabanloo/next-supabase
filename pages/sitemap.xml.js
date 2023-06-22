@@ -9,7 +9,9 @@ const createSitemap = (urlList) =>
     </urlset>`;
 
 export async function getServerSideProps({ res, req }) {
-  const siteMapJson = await fetch(`https://www.exampleapi.com/getsitemap`);
+  const siteMapJson = await fetch(
+    `https://backpacker-supabase.vercel.app/getsitemap`
+  );
   const urlList = await siteMapJson.json();
   const sitemap = createSitemap(urlList);
   res.setHeader("Content-Type", "text/xml");
