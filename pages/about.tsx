@@ -23,11 +23,10 @@ export default function About() {
           <h1 className="font-bold text-5xl tracking-tight text-white">
             در مورد من
           </h1>
-          {/* <p className="mt-4">
-            Hey there! {"I'm"} a <Age /> year old IT Administrator & Web
-            Developer based out of Brisbane, Australia. Currently, {"I'm"}{" "}
-            working for a VFX Studio called Rising Sun Pictures.
-          </p> */}
+          <p className="mt-4">
+            Hey there! {"I'm"} a <Age /> year old Front End Developer based out
+            of Tehran, Iran. Currently, {"I'm"} working for Natasun Company.
+          </p>
           <p className="mt-4">
             در اين سايت درمورد تجربيات سفر و آشنايي با افراد مختلف مينويسم ،همين
             طور با ارزان ترين راه هاي سفر و راه هايي که به شما کمک ميکند تا سفر
