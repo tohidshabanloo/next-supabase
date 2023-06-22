@@ -6,10 +6,8 @@ const prettier = require("prettier");
   const pages = await globby([
     "pages/*.js",
     "pages/*.tsx",
-    "news/**/*.mdx",
-    "news/**/*.md",
-    "posts/**/*.mdx",
-    "posts/**/*.md",
+    "pages/article/*.js",
+    "pages/article/*.tsx",
     "!pages/_*.js",
     "!pages/index.js",
     "!pages/_*.tsx",
