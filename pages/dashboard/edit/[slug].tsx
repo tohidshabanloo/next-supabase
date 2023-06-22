@@ -114,7 +114,6 @@ export default function Edit({ data }: { data: any }) {
                 required
               />
             </label>
-
             <Image
               alt={`${data.title}`}
               width={400}
@@ -132,7 +131,6 @@ export default function Edit({ data }: { data: any }) {
                 required
               />
             </label>
-
             <label className="font-bold text-sm mb-1">
               Slug<span className="text-red-500">*</span>
               <input
@@ -143,7 +141,6 @@ export default function Edit({ data }: { data: any }) {
                 required
               />
             </label>
-
             <label className="w-full font-bold text-sm mb-1">
               Published
               <input
@@ -153,7 +150,6 @@ export default function Edit({ data }: { data: any }) {
                 className="ml-1"
               />
             </label>
-
             <label className="w-full font-bold text-sm mb-1">
               <Fragment>
                 <div className="flex justify-between">
@@ -255,7 +251,6 @@ export default function Edit({ data }: { data: any }) {
                 />
               </Fragment>
             </label>
-
             <button
               className="py-1 px-6 rounded-lg bg-green-600 flex items-center justify-center hover:ring-2 ring-gray-300 transition-all"
               title="Save Changes"
