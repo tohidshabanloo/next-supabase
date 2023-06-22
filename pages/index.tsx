@@ -73,7 +73,7 @@ export default function Home({ data }: { data: any }) {
               alt="توحید شعبانلو"
               height={140}
               width={140}
-              src="https://res.cloudinary.com/tohidsh/image/upload/v1677237481/backpacker/Profile%20Images/logo.png"
+              src="https://res.cloudinary.com/tohidsh/image/upload/v1687422325/backpacker/Profile%20Images/kahkeshan.jpg"
               className={cn(
                 "rounded-full duration-700 ease-in-out hidden w-36 md:flex select-none",
                 isLoading
