@@ -1,6 +1,16 @@
 import Link from "next/link";
-import { FiSettings } from "react-icons/fi";
+import { FiArrowDown, FiSettings } from "react-icons/fi";
 import Navigation from "./Navigation";
+import {
+  FiArrowLeft,
+  FiBold,
+  FiChevronRight,
+  FiCode,
+  FiImage,
+  FiItalic,
+  FiLink,
+  FiList,
+} from "react-icons/fi";
 
 export default function Layout({ children }: { children: any }) {
   return (
@@ -48,8 +58,18 @@ export default function Layout({ children }: { children: any }) {
             </a>{" "}
             and{" "}
           </div>
-          <div className="fixed bottom-4 right-4 hover:text-white text-[#888888] transition-all duration-200">
-            <Link href="/dashboard" title="Dashboard">
+          <div className=" fixed bottom-4 right-4  text-[#888888] transition-all duration-200">
+            <div className="mb-5 mr-1">
+              <p className="text-right">برای دسترسی به داشبورد</p>
+              <p className="text-right">روی چرخدنده زیر کلیک کیند</p>
+
+              <FiArrowDown />
+            </div>
+            <Link
+              href="/dashboard"
+              title="Dashboard"
+              className="hover:text-white"
+            >
               <FiSettings className="h-5 w-5 " />
             </Link>
           </div>
