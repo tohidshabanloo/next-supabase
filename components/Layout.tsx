@@ -59,7 +59,7 @@ export default function Layout({ children }: { children: any }) {
             and{" "}
           </div>
           <div className=" fixed bottom-4 right-4  text-[#888888] transition-all duration-200">
-            <div className="mb-5 mr-1">
+            <div className="mb-5 mr-1 text-red-500">
               <p className="text-right">برای دسترسی به داشبورد</p>
               <p className="text-right">روی چرخدنده زیر کلیک کیند</p>
 
