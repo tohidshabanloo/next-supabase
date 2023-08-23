@@ -85,7 +85,6 @@ export default function Home({ data }: { data: any }) {
             />
           </div>
         </div>
-
         <h3 className="font-bold text-3xl tracking-tight mb-4 text-white">
           مقاله های اخیر
         </h3>

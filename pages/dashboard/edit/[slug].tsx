@@ -9,6 +9,7 @@ import TextareaMarkdown, {
 } from "textarea-markdown-editor";
 import {
   FiArrowLeft,
+  FiArrowRight,
   FiBold,
   FiChevronRight,
   FiCode,
@@ -20,7 +21,6 @@ import {
 import supabase from "../../../lib/supabase";
 import { BsTypeStrikethrough } from "react-icons/bs";
 import { RiHeading } from "react-icons/ri";
-import image from "next/image";
 import Image from "next/image";
 
 export async function getServerSideProps(context: any) {
@@ -45,7 +45,7 @@ export async function getServerSideProps(context: any) {
 
 export default function Edit({ data }: { data: any }) {
   const session = useSession();
-  const [saveChanges, setSaveChanges] = useState("Save Changes");
+  const [saveChanges, setSaveChanges] = useState("ذخیره شد");
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
@@ -66,10 +66,10 @@ export default function Edit({ data }: { data: any }) {
       throw error;
     }
 
-    setSaveChanges("Saved!");
+    setSaveChanges("ذخیره شد!");
 
     setTimeout(() => {
-      setSaveChanges("Save Changes");
+      setSaveChanges("ذخیره");
     }, 5000);
 
     router.push(`/article/${data.slug}`);
@@ -80,22 +80,23 @@ export default function Edit({ data }: { data: any }) {
   return (
     <>
       <Head>
-        <title>Editing {data.title} | توحید شعبانلو</title>
+        <title>ویرایش {data.title} | توحید شعبانلو</title>
         <meta name="description" content={`Editing ${data.title}`} />
       </Head>
       <div className="sm:max-w-lg">
         <div className="flex justify-between">
-          <h1 className="text-4xl font-bold mb-4 text-white">Edit Article</h1>
+          <h1 className="text-4xl font-bold mb-4 text-white">ویرایش مقاله</h1>
           <Link href="/dashboard">
             <button className="inline-flex mr-2 mt-4 text-blue-400 hover:text-blue-300">
-              <FiArrowLeft className="mr-1 my-auto" /> Back to dashboard
+              برگشت به داشبورد
+              <FiArrowLeft className="mr-1 my-auto" />
             </button>
           </Link>
         </div>
         <div className="w-full shadow-2xl bg-white/5 border border-zinc-800/50 rounded-lg p-4 text-white">
           <form onSubmit={handleSubmit}>
             <label className="font-bold text-sm mb-1">
-              Title<span className="text-red-500">*</span>
+              عنوان<span className="text-red-500 mr-1">*</span>
               <input
                 className="w-full p-2 bg-white/5 border border-zinc-800/50 text-sm mb-4 rounded-lg font-normal"
                 type="text"
@@ -104,8 +105,8 @@ export default function Edit({ data }: { data: any }) {
                 required
               />
             </label>
-            <label className="font-bold text-sm mb-1">
-              Image<span className="text-red-500">*</span>
+            <label className="font-bold text-sm mb-1 ">
+              عکس کاور <span className="text-red-500 mr-1">*</span>
               <input
                 className="flex justify-between w-full p-2 bg-white/5 border border-zinc-800/50 text-sm mb-4 rounded-lg font-normal"
                 type="text"
@@ -122,7 +123,7 @@ export default function Edit({ data }: { data: any }) {
             />
 
             <label className="font-bold text-sm mb-1">
-              Tags<span className="text-red-500">*</span>
+              تگ ها<span className="text-red-500 mr-1">*</span>
               <input
                 className="w-full p-2 bg-white/5 border border-zinc-800/50 text-sm mb-4 rounded-lg font-normal placeholder:text-[#888888]"
                 type="text"
@@ -132,7 +133,7 @@ export default function Edit({ data }: { data: any }) {
               />
             </label>
             <label className="font-bold text-sm mb-1">
-              Slug<span className="text-red-500">*</span>
+              اسلاگ<span className="text-red-500 mr-1">*</span>
               <input
                 className="w-full p-2 bg-white/5 border border-zinc-800/50 text-sm mb-4 rounded-lg font-normal placeholder:text-[#888888]"
                 type="text"
@@ -142,19 +143,19 @@ export default function Edit({ data }: { data: any }) {
               />
             </label>
             <label className="w-full font-bold text-sm mb-1">
-              Published
+              انتشار
               <input
                 type="checkbox"
                 name="published"
                 defaultValue={data.published}
-                className="ml-1"
+                className="ml-1 mr-2 mb-6"
               />
             </label>
             <label className="w-full font-bold text-sm mb-1">
               <Fragment>
                 <div className="flex justify-between">
                   <div className="my-auto">
-                    Content<span className="text-red-500">*</span>
+                    محتوا<span className="text-red-500 mr-1">*</span>
                   </div>
                   <div className="my-auto mb-1">
                     <button></button>

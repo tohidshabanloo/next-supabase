@@ -12,6 +12,7 @@ const nextConfig = {
       "cdn.discordapp.com",
       "res.cloudinary.com",
       "images.unsplash.com",
+      "google.com",
     ],
   },
 };

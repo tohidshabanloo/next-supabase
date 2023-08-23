@@ -63,22 +63,22 @@ export default function Dashboard({ data }: { data: any }) {
   return (
     <>
       <Head>
-        <title>Dashboard | توحید شعبانلو</title>
+        <title>داشبورد | توحید شعبانلو</title>
         <meta name="description" content="Post and manage articles" />
       </Head>
 
       <div className="max-w-4xl">
         <div className="text-white">
-          <h1 className="font-bold text-3xl">Dashboard</h1>
+          <h1 className="font-bold text-3xl">داشبورد</h1>
           <div className="flex justify-between">
-            <p>Update, modify and create new articles</p>
+            <p>آپدیت و ایجاد پست جدید</p>
             <div>
               <Link href="/dashboard/new">
                 <button
-                  className="py-1 px-6 text-white rounded-lg flex items-center justify-center bg-white/5 border border-zinc-800/50 hover:ring-2 ring-gray-300 transition-all"
+                  className="bg-red-800 py-1 px-4 text-white rounded-lg flex items-center justify-center bg-white/5 border border-zinc-800/50 hover:ring-2 ring-gray-300 transition-all"
                   title="Create Article"
                 >
-                  <FiPlusSquare className="mr-1" /> Create Article
+                  <FiPlusSquare className=" ml-2" /> ایجاد مقاله جدید
                 </button>
               </Link>
             </div>
@@ -96,9 +96,9 @@ export default function Dashboard({ data }: { data: any }) {
                     {article.published ? <FiEye /> : <FiEyeOff />}
                   </td>
                   <td className="px-4 py-1">{article.title}</td>
-                  <td className="text-center px-4 py-1">
+                  <td className="text-center px-4 py-1 ">
                     <Link href={`/dashboard/edit/${article.slug}`}>
-                      <button className="mr-2 text-blue-500 hover:text-blue-400">
+                      <button className="ml-2 text-blue-500 hover:text-blue-400">
                         <FiEdit />
                       </button>
                     </Link>
