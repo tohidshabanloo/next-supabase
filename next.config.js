@@ -13,6 +13,7 @@ const nextConfig = {
       "res.cloudinary.com",
       "images.unsplash.com",
       "google.com",
+      "ditty.ir",
     ],
   },
 };
