@@ -61,7 +61,7 @@ export default function Blog({ data }: { data: any }) {
   return (
     <>
       <Head>
-        <title>Blog | توحید شعبانلو</title>
+        <title>وبلاگ | توحید شعبانلو</title>
         <meta
           name="description"
           content="Check out some of my recent articles!"
@@ -70,10 +70,10 @@ export default function Blog({ data }: { data: any }) {
       <div className="my-20">
         <div className="max-w-4xl flex justify-between mx-auto">
           <div className="sm:w-2/3 w-full">
-            <h1 className="font-bold text-5xl tracking-tight text-white">
-              Blog
+            <h1 className="mb-5 font-bold text-5xl tracking-tight text-white">
+              وبلاگ
             </h1>
-            <p className="text-white my-4">
+            {/* <p className="text-white my-4">
               {"I've"} been writing articles since 2019 and have found it to be
               incredibly useful for retaining information about a variety of
               topics. I think the most interesting thing to do is to go back
@@ -89,25 +89,25 @@ export default function Blog({ data }: { data: any }) {
                   hi@zacchary.me
                 </span>
               </a>
-            </p>
+            </p> */}
           </div>
-          <div className="text-[10rem] my-auto hidden sm:flex">🤔</div>
+          {/* <div className="text-[10rem] my-auto hidden sm:flex">🤔</div> */}
         </div>
         <div className="relative w-full mb-4">
           <input
             aria-label="Search articles"
             type="text"
             onChange={(e) => setSearchValue(e.target.value)}
-            placeholder="Search articles"
-            className="block w-full px-3 py-2 text-white bg-white/5 border border-zinc-800/50 rounded-lg hover:ring-2 ring-gray-300 transition-all placeholder:text-[#888888]"
+            placeholder="جستجوی مقالات"
+            className="block w-full px-10 py-2 text-white bg-white/5 border border-zinc-800/50 rounded-lg hover:ring-2 ring-gray-300 transition-all placeholder:text-[#888888]"
           />
           <div className="absolute right-3 top-3 inline-flex space-x-2">
             <Link href="/tags">
-              <p className="-my-0.5 text-blue-500 hover:text-blue-400">
+              {/* <p className="-my-0.5 text-blue-500 hover:text-blue-400">
                 Explore tags
-              </p>
+              </p> */}
             </Link>
-            <FiSearch className="w-5 h-5 text-[#888888]" />
+            <FiSearch className=" w-5 h-5 text-[#888888]" />
           </div>
         </div>
         <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 max-w-4xl mx-auto">
