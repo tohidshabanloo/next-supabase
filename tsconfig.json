@@ -20,7 +20,8 @@
     "**/*.ts",
     "**/*.tsx",
     "pages/gallery.tsx",
-    "pages/dashboard.jsx"
+    "pages/dashboard.jsx",
+    "pages/dashboard/edit/[slug].jsx"
   ],
   "exclude": ["node_modules"]
 }
