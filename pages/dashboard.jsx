@@ -28,7 +28,7 @@ export async function getServerSideProps() {
 
   const { data: data2, error: error2 } = await supabase
     .from("aboutme")
-    .select("content");
+    .select("slug,  content");
 
   return {
     props: {
@@ -48,6 +48,7 @@ export default function Dashboard({ data, data2 }) {
     );
     if (confirm) {
       const { error } = await supabase.from("blog").delete().eq("slug", id);
+      const { error2 } = await supabase.from("aboutme").delete().eq("slug", id);
 
       if (error) {
         console.log("error", error);
