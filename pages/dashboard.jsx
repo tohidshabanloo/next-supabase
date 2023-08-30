@@ -18,7 +18,7 @@ export async function getServerSideProps() {
     .select("slug, published_at, title, published")
     .order("published_at", { ascending: false });
 
-  data?.forEach((data: any) => {
+  data?.forEach((data) => {
     data.published_at = dateFormat(data.published_at, "mmmm dS, yyyy");
   });
 
@@ -26,17 +26,22 @@ export async function getServerSideProps() {
     throw new Error(error.message);
   }
 
+  const { data: data2, error: error2 } = await supabase
+    .from("aboutme")
+    .select("content");
+
   return {
     props: {
       data,
+      data2,
     },
   };
 }
 
-export default function Dashboard({ data }: { data: any }) {
+export default function Dashboard({ data, data2 }) {
   const session = useSession();
 
-  const deleteArticle = async (id: string) => {
+  const deleteArticle = async (id) => {
     // display modal asking for confirmation
     const confirm = window.confirm(
       "Are you sure you want to delete this article?"
@@ -87,7 +92,32 @@ export default function Dashboard({ data }: { data: any }) {
         <div className="w-full mt-2 bg-white/5 rounded-lg border border-zinc-800/50 shadow-2xl">
           <table className="w-full text-white">
             <tbody>
-              {data.map((article: any) => (
+              {data2.map((item) => (
+                <tr
+                  className="bg-[#1d1d1d] border-b border-zinc-800/50 text-sm"
+                  key={item.slug}
+                >
+                  <td className="px-4 py-1">{item.content}</td>
+                  <td className="px-4 py-1">{item.title}</td>
+                  <td className="text-center px-4 py-1 ">
+                    <Link href={`/dashboard/edit/${item.slug}`}>
+                      <button className="ml-2 text-blue-500 hover:text-blue-400">
+                        <FiEdit />
+                      </button>
+                    </Link>
+                    <button
+                      className="text-red-500 hover:text-red-400"
+                      value={item.slug}
+                      onClick={(e) => deleteArticle(e.currentTarget.value)}
+                    >
+                      <FiTrash2 />
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+            <tbody>
+              {data.map((article) => (
                 <tr
                   className="bg-[#1d1d1d] border-b border-zinc-800/50 text-sm"
                   key={article.slug}

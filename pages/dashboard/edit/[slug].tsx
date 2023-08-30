@@ -51,6 +51,7 @@ export default function Edit({ data }: { data: any }) {
     e.preventDefault();
 
     const title = e.target.elements.title.value;
+    const description = e.target.elements.description.value;
     const content = e.target.elements.content.value;
     const published = e.target.elements.published.value;
     const image = e.target.elements.image.value;
@@ -58,7 +59,7 @@ export default function Edit({ data }: { data: any }) {
 
     const { data: article, error } = await supabase
       .from("blog")
-      .update({ title, content, published, image, tags })
+      .update({ title, description, content, published, image, tags })
       .eq("slug", data.slug)
       .single();
 
@@ -102,6 +103,16 @@ export default function Edit({ data }: { data: any }) {
                 type="text"
                 name="title"
                 defaultValue={data.title}
+                required
+              />
+            </label>
+            <label className="font-bold text-sm mb-1">
+              توضیحات<span className="text-red-500 mr-1">*</span>
+              <input
+                className="w-full p-2 bg-white/5 border border-zinc-800/50 text-sm mb-4 rounded-lg font-normal"
+                type="text"
+                name="description"
+                defaultValue={data.description}
                 required
               />
             </label>
