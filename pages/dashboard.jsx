@@ -85,7 +85,7 @@ export default function Dashboard({ data, data2 }) {
                 <td className="px-4 py-1">{item.content}</td>
                 <td className="px-4 py-1">{item.title}</td>
                 <td className="text-center px-4 py-1 ">
-                  <Link href={`/dashboard/edit/${item.slug}`}>
+                  <Link href={`/dashboard/editAboutMe/${item.slug}`}>
                     <button className="ml-2 text-blue-500 hover:text-blue-400">
                       <FiEdit />
                     </button>

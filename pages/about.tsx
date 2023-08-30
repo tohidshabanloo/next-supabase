@@ -1,5 +1,15 @@
-import Head from "next/head";
+import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
+import Head from "next/head";
+import dateFormat from "dateformat";
+import supabase from "../lib/supabase";
+import { FiSearch } from "react-icons/fi";
+
+function cn(...classes: string[]) {
+  return classes.filter(Boolean).join(" ");
+}
+
 import {
   FaDiscord,
   FaGithub,
@@ -11,7 +21,21 @@ import Age from "../components/Age";
 import Contact from "../components/Contact";
 import TimeStatus from "../components/TimeStatus";
 
-export default function About() {
+export async function getServerSideProps() {
+  const { data, error } = await supabase.from("aboutme").select("content");
+
+  if (error) {
+    throw new Error(error.message);
+  }
+
+  return {
+    props: {
+      data,
+    },
+  };
+}
+
+export default function About({ data }: { data: any }) {
   return (
     <>
       <Head>
@@ -23,19 +47,25 @@ export default function About() {
           <h1 className="font-bold text-5xl tracking-tight text-white">
             در مورد من
           </h1>
-          <p className="mt-4">
+          {/* <p className="mt-4">
             Hey there! {"I'm"} a <Age /> year old Front End Developer based out
             of Tehran, Iran. Currently, {"I'm"} working for Natasun Company.
-          </p>
+          </p> */}
           <p className="mt-4">
-            در اين سايت درمورد تجربيات سفر و آشنايي با افراد مختلف مينويسم ،همين
-            طور با ارزان ترين راه هاي سفر و راه هايي که به شما کمک ميکند تا سفر
-            کم هزينه تري داشته باشيد آشنا خواهيد شد بطور کلي راهنماي سفر به کشور
-            هاي مختلف را مي نويسم.يکي از هدف هاي اصلي از راه اندازي اين وبسايت
-            ايجاد کردن انگيزه بين ايرانيان براي سفرهاي انفرادي است.متاسفانه خيلي
-            از ايراني ها هنوز با تور و از طريق آژانس هاي مسافرتي برنامه سفر رو
-            ميچينن که اين علاوه بر هزينه هاي بيشتري که داره باعث ميشه حس
-            ماجراجويي در سفر از بين بره.
+            {data.map((article: any) => (
+              <div key={article.slug}>
+                <div>
+                  <div>
+                    <h1
+                      className="mt-4 text-lg font-semibold line-clamp-title"
+                      title={article.title}
+                    >
+                      {article.content}
+                    </h1>
+                  </div>
+                </div>
+              </div>
+            ))}
           </p>
           <div>
             {/* <h2 className="text-2xl font-bold mt-4 mb-4">What do you do?</h2> */}
