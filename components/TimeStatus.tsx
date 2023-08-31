@@ -8,7 +8,7 @@ const TimeStatus = () => {
     // set current to AEST
     const current = new Date();
 
-    const formatter = new Intl.DateTimeFormat("en-AU", {
+    const formatter = new Intl.DateTimeFormat("fa-IR", {
       hour: "numeric",
       minute: "numeric",
       hour12: true,
@@ -33,10 +33,14 @@ const TimeStatus = () => {
 
   return (
     <p className="text-[#888888] text-sm mb-10">
-      It{"'"}s currently <span className="font-semibold">{time}</span> for me,
-      so I{"'"}m probably{" "}
-      <span className="font-semibold">{awake ? "awake" : "sleeping"}</span>. I
-      {"'"}ll get back to you as soon as I can!
+      درحال حاضر <span className="font-semibold text-red-500">{time}</span> است
+      پس من احتمالا{" "}
+      <span className="font-semibold text-green-500">
+        {awake ? "بیدارم" : "خواب هستم"}
+      </span>
+      {awake
+        ? "  و در اولین فرصت جواب شما را میدهم"
+        : "  وقتی بیدار بشم در سریع ترین زمان جواب شما را میدهم"}
     </p>
   );
 };
