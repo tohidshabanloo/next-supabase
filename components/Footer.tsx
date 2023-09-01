@@ -2,8 +2,8 @@ import React from "react";
 import supabase from "../lib/supabase";
 
 export default function Footer() {
-  const { data, error } = await supabase.from("footer").select("content");
-  console.log(data)
+  // const { data, error } = await supabase.from("footer").select("content");
+  // console.log(data)
   return (
     <div>
       <p className="mt-4">
@@ -18,7 +18,6 @@ export default function Footer() {
             </div>
           </div>
         ))} */}
-
         hello
       </p>
     </div>

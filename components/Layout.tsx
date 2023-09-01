@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { FiArrowDown, FiSettings } from "react-icons/fi";
 import Navigation from "./Navigation";
-import Footer from "../components/Footer";
+// import Footer from "../components/Footer";
 import {
   FiArrowLeft,
   FiBold,
