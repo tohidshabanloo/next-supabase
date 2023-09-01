@@ -22,6 +22,6 @@
     "pages/gallery.tsx",
     "pages/dashboard.jsx",
     "pages/dashboard/edit/[slug].jsx"
-  ],
+, "components/Footer.tsx"  ],
   "exclude": ["node_modules"]
 }

@@ -91,7 +91,7 @@ export default function About({ data }: { data: any }) {
                   <Contact />
                 </div>
                 <div className="bg-white/5 md:w-1/3 md:mt-0 mt-4 w-full border border-zinc-800/50 rounded-lg p-4">
-                  <a href="https://github.com/tohidshabanloo">
+                  <a href="https://github.com/tohidshabanloo`">
                     <button className="p-2 mb-2 w-full bg-white/5 border border-zinc-800/50 rounded-lg flex items-center justify-center hover:ring-2 ring-gray-300 transition-all">
                       <FaGithub className="w-6 h-6 mr-1" /> GitHub
                     </button>

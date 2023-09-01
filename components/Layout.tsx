@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { FiArrowDown, FiSettings } from "react-icons/fi";
 import Navigation from "./Navigation";
+import Footer from "../components/Footer";
 import {
   FiArrowLeft,
   FiBold,
@@ -21,7 +22,9 @@ export default function Layout({ children }: { children: any }) {
         </nav>
         <main className="mx-auto">{children}</main>
         <footer className="text-center">
-          <div className="font-semibold text-md text-[#888888]">
+          <div className="font-semibold text-md text-[#888888]"></div>
+          {/* <Footer /> */}
+          {/* <div className="font-semibold text-md text-[#888888]">
             <a
               href="https://github.com/zpuckeridge/blog"
               className="hover:text-[#ff0000] transition-all duration-200"
@@ -57,7 +60,7 @@ export default function Layout({ children }: { children: any }) {
               Tailwind CSS
             </a>{" "}
             and{" "}
-          </div>
+          </div> */}
           <div className=" fixed bottom-4 right-4  text-[#888888] transition-all duration-200">
             <div className="mb-5 mr-1 text-red-500">
               <p className="text-right">برای دسترسی به داشبورد</p>

@@ -98,13 +98,13 @@ export default function Home({ data }: { data: any }) {
                 <div>
                   <div className="grid sm:grid-cols-2 md:grid-cols-2">
                     <div className="">
-                      <Image
+                      <img
                         alt="توحید شعبانلو"
                         height={140}
                         width={140}
                         src={article.image}
                         className={cn(
-                          "object-cover h-64 w-48 rounded-r-lg duration-700 ease-in-out   md:flex select-none",
+                          "object-cover h-64 w-52 rounded-r-lg duration-700 ease-in-out   md:flex select-none",
                           isLoading
                             ? "grayscale blur-2xl scale-110"
                             : "grayscale-0 blur-0 scale-100"
