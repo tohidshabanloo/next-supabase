@@ -50,7 +50,7 @@ export default function Edit({ data }: { data: any }) {
   const [saveChanges, setSaveChanges] = useState("ذخیره");
   const [avatarUrl, setAvatarUrl] = useState("profile?.avatar_url" || "");
   const [loading, setLoading] = useState(false);
-  const [file, setFile] = useState(null);
+  const [file, setFile] = useState("");
   const [filename, setFilename] = useState("");
   const [secureUrl, setImage] = useState("");
 
@@ -65,6 +65,7 @@ export default function Edit({ data }: { data: any }) {
     setLoading(true);
     // router.push(`/article/${data.slug}`);
     const formData = new FormData();
+
     formData.append("file", file);
     formData.append("upload_preset", "supabase");
 
