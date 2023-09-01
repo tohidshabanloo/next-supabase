@@ -98,7 +98,7 @@ export default function Home({ data }: { data: any }) {
                 <div>
                   <div className="grid sm:grid-cols-2 md:grid-cols-2">
                     <div className="">
-                      <img
+                      <Image
                         alt="توحید شعبانلو"
                         height={140}
                         width={140}
