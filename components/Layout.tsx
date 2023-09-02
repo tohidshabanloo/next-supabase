@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { FiArrowDown, FiSettings } from "react-icons/fi";
 import Navigation from "./Navigation";
-// import Footer from "../components/Footer";
+import Footer from "../components/Footer";
 import {
   FiArrowLeft,
   FiBold,
@@ -23,7 +23,7 @@ export default function Layout({ children }: { children: any }) {
         <main className="mx-auto">{children}</main>
         <footer className="text-center">
           <div className="font-semibold text-md text-[#888888]"></div>
-          {/* <Footer /> */}
+          <Footer />
           {/* <div className="font-semibold text-md text-[#888888]">
             <a
               href="https://github.com/zpuckeridge/blog"

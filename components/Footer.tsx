@@ -1,12 +1,13 @@
 import React from "react";
 import supabase from "../lib/supabase";
+import Link from "next/link";
 
 export default function Footer() {
   // const { data, error } = await supabase.from("footer").select("content");
   // console.log(data)
   return (
-    <div>
-      <p className="mt-4">
+    <div className=" text-gray-500">
+      <p className=" mt-4 ">
         {/* {data.map((item: any) => (
           <div key={item.slug}>
             <div>
@@ -18,7 +19,12 @@ export default function Footer() {
             </div>
           </div>
         ))} */}
-        hello
+        ساخته شده با Supabase | Nextjs | Cloudinary
+      </p>
+      <p>
+        <Link href="https://tohidsh.com/" title="backpacker" target="_blank">
+          توسط کوله پشتی
+        </Link>
       </p>
     </div>
   );

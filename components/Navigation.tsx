@@ -28,9 +28,9 @@ export default function Navigation() {
                     alt="فرانت لند"
                     height={40}
                     width={40}
-                    src="https://res.cloudinary.com/tohidsh/image/upload/v1677237481/backpacker/Profile%20Images/logo.png"
+                    src="https://res.cloudinary.com/dufbokly6/image/upload/v1693619581/favicon_fivkxz.png"
                     className={cn(
-                      "rounded-full duration-700 ease-in-out select-none",
+                      "ml-1  duration-700 ease-in-out select-none",
                       isLoading
                         ? "grayscale blur-2xl scale-110"
                         : "grayscale-0 blur-0 scale-100"

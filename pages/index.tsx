@@ -40,7 +40,7 @@ export default function Home({ data }: { data: any }) {
   return (
     <>
       <Head>
-        <title>Home | فرانت لند</title>
+        <title>صفحه اصلی | فرانت لند</title>
         <meta
           name="description"
           content="Woah! You made it to my personal website, welcome."
@@ -48,7 +48,7 @@ export default function Home({ data }: { data: any }) {
       </Head>
       <div className="max-w-4xl border-gray-200 dark:border-gray-700 mt-20 mb-20">
         <div className="flex flex-col-reverse sm:flex-row items-start">
-          <div className="flex flex-col pr-12">
+          <div className="flex flex-col ">
             <h1 className="font-bold text-3xl md:text-5xl tracking-tight mb-1 text-white">
               فرانت لند
             </h1>
@@ -73,9 +73,9 @@ export default function Home({ data }: { data: any }) {
               alt="فرانت لند"
               height={140}
               width={140}
-              src="https://res.cloudinary.com/tohidsh/image/upload/v1687422325/backpacker/Profile%20Images/kahkeshan.jpg"
+              src="https://res.cloudinary.com/dufbokly6/image/upload/v1693620292/644617_h3pmwh.png"
               className={cn(
-                "rounded-full duration-700 ease-in-out hidden w-36 md:flex select-none",
+                "duration-700 ease-in-out hidden w-36 md:flex select-none",
                 isLoading
                   ? "grayscale blur-2xl scale-110"
                   : "grayscale-0 blur-0 scale-100"
