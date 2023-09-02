@@ -61,7 +61,7 @@ export default function Blog({ data }: { data: any }) {
   return (
     <>
       <Head>
-        <title>وبلاگ | توحید شعبانلو</title>
+        <title>وبلاگ | فرانت لند</title>
         <meta
           name="description"
           content="Check out some of my recent articles!"

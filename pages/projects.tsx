@@ -21,7 +21,7 @@ export default function Projects() {
   return (
     <>
       <Head>
-        <title>Projects | توحید شعبانلو</title>
+        <title>Projects | فرانت لند</title>
         <meta
           name="description"
           content="Check out some of my more recent projects!"

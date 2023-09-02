@@ -39,7 +39,7 @@ export default function About({ data }: { data: any }) {
   return (
     <>
       <Head>
-        <title>درمورد من | توحید شعبانلو</title>
+        <title>درمورد من | فرانت لند </title>
         <meta name="description" content="Learn more about me!" />
       </Head>
       <div className="grid place-items-center text-white">
@@ -57,7 +57,7 @@ export default function About({ data }: { data: any }) {
                 <div>
                   <div>
                     <h1
-                      className="mt-4 text-lg font-semibold line-clamp-title"
+                      className="mt-4 text-lg font-semibold line-clamp-6"
                       title={article.title}
                     >
                       {article.content}

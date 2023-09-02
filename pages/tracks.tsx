@@ -26,7 +26,7 @@ export default function Tracks({ data }: { data: any }) {
   return (
     <>
       <Head>
-        <title>Tracks | توحید شعبانلو</title>
+        <title>Tracks | فرانت لند</title>
         <meta name="description" content="Find out what I'm jamming out to!" />
       </Head>
       <div className="my-20 max-w-4xl">

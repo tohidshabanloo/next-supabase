@@ -84,7 +84,7 @@ export default function Edit() {
   return (
     <>
       <Head>
-        <title>پست جدید | توحید شعبانلو</title>
+        <title>پست جدید | فرانت لند</title>
         <meta name="description" content="Create Article" />
       </Head>
       <div className="sm:max-w-lg">

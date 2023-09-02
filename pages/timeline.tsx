@@ -4,7 +4,7 @@ export default function Timeline() {
   return (
     <>
       <Head>
-        <title>Timeline | توحید شعبانلو</title>
+        <title>Timeline | فرانت لند</title>
         <meta
           name="description"
           content="Learn more my about career to date!"

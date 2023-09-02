@@ -23,7 +23,7 @@ export default function Tags({ tags }: { tags: string[] }) {
   return (
     <>
       <Head>
-        <title>Tags | توحید شعبانلو</title>
+        <title>Tags | فرانت لند</title>
         <meta name="description" content="List articles via their tags" />
       </Head>
       <div>

@@ -69,7 +69,7 @@ export default function Dashboard({ data, data2 }) {
   return (
     <>
       <Head>
-        <title>داشبورد | توحید شعبانلو</title>
+        <title>داشبورد | فرانت لند</title>
         <meta name="description" content="Post and manage articles" />
       </Head>
 

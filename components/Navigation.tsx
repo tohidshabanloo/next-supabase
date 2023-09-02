@@ -25,7 +25,7 @@ export default function Navigation() {
                   title="Home"
                 >
                   <Image
-                    alt="توحید شعبانلو"
+                    alt="فرانت لند"
                     height={40}
                     width={40}
                     src="https://res.cloudinary.com/tohidsh/image/upload/v1677237481/backpacker/Profile%20Images/logo.png"
@@ -39,7 +39,7 @@ export default function Navigation() {
                     priority={true}
                   />
                   <span className="ml-2 text-lg font-bold transition-all duration-200 shadow-2xl">
-                    توحید شعبانلو
+                    فرانت لند
                   </span>
                 </Link>
               </div>

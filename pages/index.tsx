@@ -40,7 +40,7 @@ export default function Home({ data }: { data: any }) {
   return (
     <>
       <Head>
-        <title>Home | توحید شعبانلو</title>
+        <title>Home | فرانت لند</title>
         <meta
           name="description"
           content="Woah! You made it to my personal website, welcome."
@@ -50,7 +50,7 @@ export default function Home({ data }: { data: any }) {
         <div className="flex flex-col-reverse sm:flex-row items-start">
           <div className="flex flex-col pr-12">
             <h1 className="font-bold text-3xl md:text-5xl tracking-tight mb-1 text-white">
-              توحید شعبانلو
+              فرانت لند
             </h1>
             <h2 className="mt-2 text-white mb-4">
               برنامه نویس فرانت اند در{" "}
@@ -70,7 +70,7 @@ export default function Home({ data }: { data: any }) {
           </div>
           <div className="mb-8 sm:mb-0 mr-auto">
             <Image
-              alt="توحید شعبانلو"
+              alt="فرانت لند"
               height={140}
               width={140}
               src="https://res.cloudinary.com/tohidsh/image/upload/v1687422325/backpacker/Profile%20Images/kahkeshan.jpg"
@@ -99,7 +99,7 @@ export default function Home({ data }: { data: any }) {
                   <div className="grid sm:grid-cols-2 md:grid-cols-2">
                     <div className="">
                       <Image
-                        alt="توحید شعبانلو"
+                        alt="فرانت لند"
                         height={1000}
                         width={1000}
                         src={article.image}

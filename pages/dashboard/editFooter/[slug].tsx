@@ -76,7 +76,7 @@ export default function EditFooter({ data }: { data: any }) {
   return (
     <>
       <Head>
-        <title>ویرایش {data.content} | توحید شعبانلو</title>
+        <title>ویرایش {data.content} | فرانت لند</title>
         <meta name="description" content={`Editing ${data.content}`} />
       </Head>
       <div className="sm:max-w-lg">

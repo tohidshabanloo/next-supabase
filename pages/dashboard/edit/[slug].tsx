@@ -46,7 +46,6 @@ export async function getServerSideProps(context: any) {
 }
 
 export default function Edit({ data }: { data: any }) {
-
   const session = useSession();
   const [saveChanges, setSaveChanges] = useState("ذخیره");
   const [avatarUrl, setAvatarUrl] = useState("profile?.avatar_url" || "");
@@ -103,7 +102,7 @@ export default function Edit({ data }: { data: any }) {
   return (
     <>
       <Head>
-        <title>ویرایش {data.title} | توحید شعبانلو</title>
+        <title>ویرایش {data.title} | فرانت لند</title>
         <meta name="description" content={`Editing ${data.title}`} />
       </Head>
       <div className="sm:max-w-lg">
@@ -147,9 +146,7 @@ export default function Edit({ data }: { data: any }) {
                 onChange={handleFileChange}
                 // required
               />
-            
             </label>
-         
 
             <Image
               alt={`${data?.title}`}
