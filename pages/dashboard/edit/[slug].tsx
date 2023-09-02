@@ -46,7 +46,7 @@ export async function getServerSideProps(context: any) {
 }
 
 export default function Edit({ data }: { data: any }) {
-  
+
   const session = useSession();
   const [saveChanges, setSaveChanges] = useState("ذخیره");
   const [avatarUrl, setAvatarUrl] = useState("profile?.avatar_url" || "");
@@ -147,9 +147,9 @@ export default function Edit({ data }: { data: any }) {
                 onChange={handleFileChange}
                 // required
               />
-              {/* <progress id="progressBar" value="0" max="100"></progress> */}
+            
             </label>
-            {/* <button type="submit">Upload</button> */}
+         
 
             <Image
               alt={`${data?.title}`}

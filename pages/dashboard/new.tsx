@@ -81,7 +81,6 @@ export default function Edit() {
   };
 
   const ref = useRef<TextareaMarkdownRef>(null);
-
   return (
     <>
       <Head>
@@ -130,12 +129,12 @@ export default function Edit() {
                 // required
               />
             </label>
-            {/* <Image
-              alt={`${data?.title}`}
+            <Image
+              alt={`${filename}`}
               width={400}
               height={400}
-              src={`${filename ? filename : data?.image}`}
-            /> */}
+              src={`${filename ? filename : file}`}
+            />
             <label className="font-bold text-sm mb-1">
               اسلاگ<span className="text-red-500 mr-1">*</span>
               <input
