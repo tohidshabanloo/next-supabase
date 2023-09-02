@@ -46,6 +46,7 @@ export async function getServerSideProps(context: any) {
 }
 
 export default function Edit({ data }: { data: any }) {
+  
   const session = useSession();
   const [saveChanges, setSaveChanges] = useState("ذخیره");
   const [avatarUrl, setAvatarUrl] = useState("profile?.avatar_url" || "");
