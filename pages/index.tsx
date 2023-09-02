@@ -100,8 +100,8 @@ export default function Home({ data }: { data: any }) {
                     <div className="">
                       <Image
                         alt="توحید شعبانلو"
-                        height={200}
-                        width={200}
+                        height={1000}
+                        width={1000}
                         src={article.image}
                         className={cn(
                           "object-cover h-64 w-52 rounded-r-lg duration-700 ease-in-out   md:flex select-none",
