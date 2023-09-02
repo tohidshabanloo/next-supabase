@@ -14,6 +14,7 @@ const nextConfig = {
       "images.unsplash.com",
       "google.com",
       "ditty.ir",
+      "localhost",
     ],
   },
 };
