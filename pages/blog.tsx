@@ -144,9 +144,12 @@ export default function Blog({ data }: { data: any }) {
                     </h1>
                     <div className="mt-2 flex justify-between">
                       <div>{article.published_at}</div>
-                      <div>{article.views} views</div>
+                      <div>{article.views} بازدید</div>
                     </div>
-                    <p className="mt-2 line-clamp" title={article.description}>
+                    <p
+                      className="mt-2 line-clamp text-gray-400 font-extralight"
+                      title={article.description}
+                    >
                       {article.description}
                     </p>
                   </div>

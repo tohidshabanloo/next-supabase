@@ -55,26 +55,26 @@ export default function Navigation() {
                       وبلاگ
                     </button>
                   </Link>
-                  <Link href="/gallery" title="Gallery">
+                  {/* <Link href="/gallery" title="Gallery">
                     <button className="block text-white font-semibold transition-all duration-200 hover:text-[#888888]">
                       گالری
                     </button>
-                  </Link>
-                  <Link href="/projects" title="Projects">
+                  </Link> */}
+                  {/* <Link href="/projects" title="Projects">
                     <button className="block text-white font-semibold transition-all duration-200 hover:text-[#888888]">
                       پروژه ها
                     </button>
-                  </Link>
-                  <Link href="/timeline" title="Timeline">
+                  </Link> */}
+                  {/* <Link href="/timeline" title="Timeline">
                     <button className="block text-white font-semibold transition-all duration-200 hover:text-[#888888]">
                       زندگی نامه
                     </button>
-                  </Link>
-                  <Link href="/uses" title="Uses">
+                  </Link> */}
+                  {/* <Link href="/uses" title="Uses">
                     <button className="block text-white font-semibold transition-all duration-200 hover:text-[#888888]">
                       ابزار
                     </button>
-                  </Link>
+                  </Link> */}
                   <LoginButton />
                 </div>
               </div>

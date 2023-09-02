@@ -120,10 +120,10 @@ export default function Home({ data }: { data: any }) {
                       >
                         {article.title}
                       </h1>
-                      <h1 className="mt-4 ml-4 text-sm font-semibold text-justify line-clamp-6">
+                      <h1 className="mt-4 ml-4 text-sm font-extralight text-gray-400  text-justify w-42  line-clamp-6">
                         {article.description}
                       </h1>
-                      <div className="gap-4 mb-2 absolute bottom-0   flex justify-between text-sm">
+                      <div className="gap-4 mb-2 absolute bottom-0  text-gray-400  flex justify-between text-sm">
                         <div>{article.published_at}</div>
                         <div>{article.views} بازدید</div>
                       </div>
