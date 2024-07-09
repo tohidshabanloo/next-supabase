@@ -1,7 +1,7 @@
 import { useSession } from "@supabase/auth-helpers-react";
 import Head from "next/head";
 import Link from "next/link";
-import router from "next/router";
+import { useRouter } from "next/router";
 import { Fragment, useRef, useState } from "react";
 import TextareaMarkdown, {
   TextareaMarkdownRef,
@@ -24,59 +24,86 @@ import Image from "next/image";
 
 export default function Edit() {
   const session = useSession();
+  const router = useRouter();
   const [saveChanges, setSaveChanges] = useState("پست");
-  const [avatarUrl, setAvatarUrl] = useState("profile?.avatar_url" || "");
   const [loading, setLoading] = useState(false);
-  const [file, setFile] = useState("");
+  const [file, setFile] = useState<File | null>(null);
   const [filename, setFilename] = useState("");
-  const [secureUrl, setImage] = useState("");
+  const [secureUrl, setSecureUrl] = useState("");
 
-  const handleFileChange = (event: any) => {
-    setFile(event.target.files[0]);
-    setFilename(URL.createObjectURL(event.target.files[0]));
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const selectedFile = event.target.files?.[0];
+    if (selectedFile) {
+      setFile(selectedFile);
+      setFilename(URL.createObjectURL(selectedFile));
+    }
   };
 
-  const handleSubmit = async (e: any) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     setLoading(true);
-    // router.push(`/article/${data.slug}`);
     const formData = new FormData();
+    if (file) {
+      formData.append("file", file);
+      formData.append("upload_preset", "supabase");
 
-    formData.append("file", file);
-    formData.append("upload_preset", "supabase");
+      try {
+        const response = await axios.post(
+          "https://api.cloudinary.com/v1_1/dufbokly6/image/upload",
+          formData
+        );
 
-    try {
-      const response = await axios.post(
-        "https://api.cloudinary.com/v1_1/dufbokly6/image/upload",
-        formData
-      );
+        const image = response?.data?.secure_url;
 
-      const title = e.target.elements.title.value;
-      const description = e.target.elements.description.value;
-      const image = response?.data?.secure_url;
-      const tags = e.target.elements.tags.value;
-      const content = e.target.elements.content.value;
-      const slug = e.target.elements.slug.value;
-      const published = e.target.elements.published.value;
-      const { data, error } = await supabase
-        .from("blog")
-        .insert({ title, description, image, tags, content, slug, published });
+        if (!image) {
+          throw new Error("Image upload failed");
+        }
 
+        const formElements = e.target as typeof e.target & {
+          title: { value: string };
+          description: { value: string };
+          slug: { value: string };
+          tags: { value: string };
+          content: { value: string };
+          published: { checked: boolean };
+        };
+
+        const title = formElements.title.value;
+        const description = formElements.description.value;
+        const slug = formElements.slug.value;
+        const tags = formElements.tags.value;
+        const content = formElements.content.value;
+        const published = formElements.published.checked;
+
+        const { data, error } = await supabase
+          .from("blog")
+          .insert({
+            title,
+            description,
+            image,
+            tags,
+            content,
+            slug,
+            published,
+          });
+
+        if (error) {
+          throw error;
+        }
+
+        setLoading(false);
+        setSaveChanges("منتشر شد!");
+        router.push(`/article/${slug}`);
+      } catch (error) {
+        console.error("Error submitting form:", error);
+        setLoading(false);
+        setSaveChanges("ذخیره نشد!");
+      }
+    } else {
+      console.error("No file selected for upload");
       setLoading(false);
-      setSaveChanges("منتشر شد!");
-
-      // setTimeout(() => {
-      //   setSaveChanges("Publish");
-      // }, 5000);
-
-      // router.push(`/article/${slug}`);
-      setSaveChanges("ذخیره شد!");
-      // setTimeout(() => {
-      //   setSaveChanges("ذخیره");
-      // }, 5000);
-    } catch (error) {
-      console.log(error);
+      setSaveChanges("ذخیره نشد!");
     }
   };
 
@@ -126,15 +153,17 @@ export default function Edit() {
                 name="image"
                 type="file"
                 onChange={handleFileChange}
-                // required
+                required
               />
             </label>
-            <Image
-              alt={`${filename}`}
-              width={400}
-              height={400}
-              src={`${filename ? filename : file}`}
-            />
+            {filename && (
+              <Image
+                alt={`${filename}`}
+                width={400}
+                height={400}
+                src={filename}
+              />
+            )}
             <label className="font-bold text-sm mb-1">
               اسلاگ<span className="text-red-500 mr-1">*</span>
               <input
@@ -151,7 +180,7 @@ export default function Edit() {
                 className="w-full p-2 bg-white/5 border border-zinc-800/50 text-sm mb-4 rounded-lg font-normal placeholder:text-[#888888]"
                 type="text"
                 name="tags"
-                placeholder="your-slug-here"
+                placeholder="your-tags-here"
                 required
               />
             </label>
@@ -266,7 +295,7 @@ export default function Edit() {
                 />
               </Fragment>
             </label>
-            {loading ? (
+            {loading && (
               <div role="status">
                 <svg
                   aria-hidden="true"
@@ -286,11 +315,12 @@ export default function Edit() {
                 </svg>
                 <span className="sr-only">Loading...</span>
               </div>
-            ) : null}
+            )}
             <button
               className="py-1 px-6 rounded-lg bg-green-600 flex items-center justify-center hover:ring-2 ring-gray-300 transition-all"
               title="Save Changes"
               type="submit"
+              disabled={loading}
             >
               {saveChanges}
             </button>
