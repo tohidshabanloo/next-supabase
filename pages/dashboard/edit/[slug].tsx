@@ -1,10 +1,9 @@
 import { useSession } from "@supabase/auth-helpers-react";
 import axios from "axios";
-import dateFormat from "dateformat";
 import Head from "next/head";
 import Link from "next/link";
 import router from "next/router";
-import { Fragment, useRef, useState, useCallback } from "react";
+import { Fragment, useRef, useState } from "react";
 import TextareaMarkdown, {
   TextareaMarkdownRef,
 } from "textarea-markdown-editor";
@@ -22,12 +21,10 @@ import {
 import supabase from "../../../lib/supabase";
 import { BsTypeStrikethrough } from "react-icons/bs";
 import { RiHeading } from "react-icons/ri";
-
 import Image from "next/image";
 
-export async function getServerSideProps(context: any) {
+export async function getServerSideProps(context) {
   const { slug } = context.query;
-
   const { data, error } = await supabase
     .from("blog")
     .select("*")
@@ -45,55 +42,73 @@ export async function getServerSideProps(context: any) {
   };
 }
 
-export default function Edit({ data }: { data: any }) {
+export default function Edit({ data }) {
   const session = useSession();
   const [saveChanges, setSaveChanges] = useState("ذخیره");
-  const [avatarUrl, setAvatarUrl] = useState("profile?.avatar_url" || "");
   const [loading, setLoading] = useState(false);
-  const [file, setFile] = useState("");
-  const [filename, setFilename] = useState("");
-  const [secureUrl, setImage] = useState("");
+  const [file, setFile] = useState(null);
+  const [filename, setFilename] = useState(data.image);
 
-  const handleFileChange = (event: any) => {
+  const handleFileChange = (event) => {
     setFile(event.target.files[0]);
     setFilename(URL.createObjectURL(event.target.files[0]));
   };
 
-  const handleSubmit = async (e: any) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
     setLoading(true);
-    // router.push(`/article/${data.slug}`);
-    const formData = new FormData();
 
-    formData.append("file", file);
-    formData.append("upload_preset", "supabase");
+    let imageUrl = data.image;
+    if (file) {
+      const formData = new FormData();
+      formData.append("file", file);
+      formData.append("upload_preset", "supabase");
+
+      try {
+        const response = await axios.post(
+          "https://api.cloudinary.com/v1_1/dufbokly6/image/upload",
+          formData
+        );
+        imageUrl = response.data.secure_url;
+      } catch (error) {
+        console.error("Error uploading image: ", error);
+        setLoading(false);
+        return;
+      }
+    }
+
+    const title = e.target.elements.title.value;
+    const description = e.target.elements.description.value;
+    const content = e.target.elements.content.value;
+    const published = e.target.elements.published.checked;
+    const tags = e.target.elements.tags.value;
 
     try {
-      const response = await axios.post(
-        "https://api.cloudinary.com/v1_1/dufbokly6/image/upload",
-        formData
-      );
-
-      const title = e.target.elements.title.value;
-      const description = e.target.elements.description.value;
-      const content = e.target.elements.content.value;
-      const published = e.target.elements.published.value;
-      const image = response?.data?.secure_url;
-      const tags = e.target.elements.tags.value;
       const { data: article, error } = await supabase
         .from("blog")
-        .update({ title, description, content, published, image, tags })
+        .update({
+          title,
+          description,
+          content,
+          published,
+          image: imageUrl,
+          tags,
+        })
         .eq("slug", data.slug)
         .single();
 
-      setLoading(false);
+      if (error) {
+        throw error;
+      }
+
       setSaveChanges("ذخیره شد!");
-      // setTimeout(() => {
-      //   setSaveChanges("ذخیره");
-      // }, 5000);
+      setLoading(false);
+
+      // Redirect to the updated article page
+      router.push(`/article/${data.slug}`);
     } catch (error) {
-      console.log(error);
+      console.error("Error updating article: ", error);
+      setLoading(false);
     }
   };
 
@@ -137,24 +152,16 @@ export default function Edit({ data }: { data: any }) {
                 required
               />
             </label>
-            <label className="font-bold text-sm mb-1 ">
+            <label className="font-bold text-sm mb-1">
               عکس کاور <span className="text-red-500 mr-1">*</span>
               <input
                 className="flex justify-between w-full p-2 bg-white/5 border border-zinc-800/50 text-sm mb-4 rounded-lg font-normal"
                 name="image"
                 type="file"
                 onChange={handleFileChange}
-                // required
               />
             </label>
-
-            <Image
-              alt={`${data?.title}`}
-              width={400}
-              height={400}
-              src={`${filename ? filename : data?.image}`}
-            />
-
+            <Image alt={data.title} width={400} height={400} src={filename} />
             <label className="font-bold text-sm mb-1">
               تگ ها<span className="text-red-500 mr-1">*</span>
               <input
@@ -173,6 +180,7 @@ export default function Edit({ data }: { data: any }) {
                 name="slug"
                 defaultValue={data.slug}
                 required
+                readOnly
               />
             </label>
             <label className="w-full font-bold text-sm mb-1">
@@ -180,7 +188,7 @@ export default function Edit({ data }: { data: any }) {
               <input
                 type="checkbox"
                 name="published"
-                defaultValue={data.published}
+                defaultChecked={data.published}
                 className="ml-1 mr-2 mb-6"
               />
             </label>
@@ -275,7 +283,6 @@ export default function Edit({ data }: { data: any }) {
                     </button>
                   </div>
                 </div>
-
                 <TextareaMarkdown
                   ref={ref}
                   name="content"
@@ -286,7 +293,7 @@ export default function Edit({ data }: { data: any }) {
               </Fragment>
             </label>
 
-            {loading ? (
+            {loading && (
               <div role="status">
                 <svg
                   aria-hidden="true"
@@ -306,12 +313,13 @@ export default function Edit({ data }: { data: any }) {
                 </svg>
                 <span className="sr-only">Loading...</span>
               </div>
-            ) : null}
+            )}
 
             <button
               className="py-1 px-6 rounded-lg bg-green-600 flex items-center justify-center hover:ring-2 ring-gray-300 transition-all"
               title="Save Changes"
               type="submit"
+              disabled={loading}
             >
               {saveChanges}
             </button>
