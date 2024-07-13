@@ -35,7 +35,7 @@ export async function getServerSideProps(context: any) {
   // Convert the date to Jalali format
   data.published_at = moment(data.published_at)
     .locale("fa")
-    .format("YYYY/MM/DD");
+    .format("D MMMM YYYY"); // Format to Persian date with month names
   data.updated_at = moment(data.updated_at).locale("fa").format("YYYY/MM/DD");
 
   // Serialize content
