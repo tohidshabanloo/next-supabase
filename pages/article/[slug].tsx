@@ -16,12 +16,21 @@ function cn(...classes: string[]) {
 export async function getServerSideProps(context: any) {
   const { slug } = context.query;
 
+  console.log(`Incrementing view for slug: ${slug}`);
+
   // Trigger view increment
-  await supabase.rpc("blog_views", {
+  const { error: rpcError } = await supabase.rpc("blog_views", {
     quote_id: slug,
     increment_num: 1,
   });
 
+  if (rpcError) {
+    console.error("Error updating views:", rpcError.message);
+  } else {
+    console.log(`View count incremented for slug: ${slug}`);
+  }
+
+  // Fetch the updated data
   const { data, error } = await supabase
     .from("blog")
     .select("*")
@@ -29,8 +38,11 @@ export async function getServerSideProps(context: any) {
     .single();
 
   if (error) {
+    console.error("Error fetching data:", error.message);
     throw new Error(error.message);
   }
+
+  console.log("Fetched data:", data);
 
   // Convert the date to Jalali format
   data.published_at = moment(data.published_at)
@@ -72,7 +84,8 @@ export default function Article({
           </Link>
           <h1 className="font-bold text-4xl text-white">{data.title}</h1>
           <p className="text-xs text-white">
-            Updated {data.updated_at} {/* Use the Jalali formatted date */}
+            تاریخ آخرین آپدیت {data.updated_at}{" "}
+            {/* Use the Jalali formatted date */}
           </p>
           <Image
             alt={`${data.title}`}
@@ -91,7 +104,7 @@ export default function Article({
         </div>
         <div className="flex justify-between text-white my-4">
           <div className="text-white">
-            {data.published_at} / {data.views} views
+            {data.published_at} / {data.views} بازدید {/* Display views */}
           </div>
           <CopyLink />
         </div>
