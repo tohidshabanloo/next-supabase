@@ -1,7 +1,7 @@
 import { MDXRemote } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
 import Link from "next/link";
-import dateFormat from "dateformat";
+import moment from "jalali-moment"; // Import jalali-moment
 import { format } from "timeago.js";
 import Image from "next/image";
 import { useState } from "react";
@@ -32,9 +32,13 @@ export async function getServerSideProps(context: any) {
     throw new Error(error.message);
   }
 
-  data.published_at = dateFormat(data.published_at, "mmmm dS, yyyy");
+  // Convert the date to Jalali format
+  data.published_at = moment(data.published_at)
+    .locale("fa")
+    .format("YYYY/MM/DD");
+  data.updated_at = moment(data.updated_at).locale("fa").format("YYYY/MM/DD");
 
-  // Serialiaze content
+  // Serialize content
   const mdxSource = await serialize(data.content || "");
 
   return {
@@ -68,7 +72,7 @@ export default function Article({
           </Link>
           <h1 className="font-bold text-4xl text-white">{data.title}</h1>
           <p className="text-xs text-white">
-            Updated {format(data.updated_at)}
+            Updated {data.updated_at} {/* Use the Jalali formatted date */}
           </p>
           <Image
             alt={`${data.title}`}

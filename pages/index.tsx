@@ -6,6 +6,7 @@ import { useState } from "react";
 import supabase from "../lib/supabase";
 import dateFormat from "dateformat";
 import Head from "next/head";
+import moment from "jalali-moment"; // Import jalali-moment
 
 function cn(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
@@ -19,10 +20,11 @@ export async function getServerSideProps() {
     .eq("published", true)
     .range(0, 5);
 
-  data?.forEach((data: any) => {
-    data.published_at = dateFormat(data.published_at, "mmmm dS");
+  data?.forEach((item: any) => {
+    item.published_at = moment(item.published_at)
+      .locale("fa")
+      .format("D MMMM YYYY"); // Format to Persian date with month names
   });
-
   if (error) {
     throw new Error(error.message);
   }
